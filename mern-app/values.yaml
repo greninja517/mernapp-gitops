@@ -3,8 +3,8 @@ backend:
   replicas: 1
 
   image:
-    repository: ""
-    tag: ""
+    repository: " asia-south1-docker.pkg.dev/devops-461410/mernapp-backend/backend"
+    tag: "3"
 
   ####-----NOTE: THE SECRETS ARE HERE JUST FOR DEMO------####
   # MongoDB connection string, username, and password
@@ -18,8 +18,8 @@ frontend:
   replicas: 1
 
   image:
-    repository: ""
-    tag: ""
+    repository: "asia-south1-docker.pkg.dev/devops-461410/mernapp-frontend/frontend"
+    tag: "3"
 
 ingress:
   name: mern-ingress
