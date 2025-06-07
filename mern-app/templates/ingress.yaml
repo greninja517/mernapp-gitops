@@ -8,13 +8,13 @@ spec:
   - host: {{ .Values.ingress.domain_name }}
     http:
         paths:
-        -   path: /
-            pathType: Prefix
-            backend:
+        - path: /
+          pathType: Prefix
+          backend:
             service:
-                name: {{ .Values.frontend.name }}-svc
-                port:
-                  number: 80
+              name: {{ .Values.frontend.name }}-svc
+              port:
+                number: 80
         - path: /api
           pathType: Prefix
           backend:
