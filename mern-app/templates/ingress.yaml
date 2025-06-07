@@ -14,7 +14,7 @@ spec:
             service:
                 name: {{ .Values.frontend.name }}-svc
                 port:
-                number: 80
+                  number: 80
         - path: /api
           pathType: Prefix
           backend:
