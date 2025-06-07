@@ -1,0 +1,26 @@
+backend:
+  name: mern-backend
+  replicas: 1
+
+  image:
+    repository: ""
+    tag: ""
+
+  ####-----NOTE: THE SECRETS ARE HERE JUST FOR DEMO------####
+  # MongoDB connection string, username, and password
+  mongo_conn_str: "mongodb+srv://mern-user:mernuser@mernapp-db.qthukym.mongodb.net/app?retryWrites=true&w=majority&appName=mernapp-db"
+  mongo_username: "mern-user"
+  mongo_password: "mernuser"
+
+
+frontend:
+  name: mern-frontend
+  replicas: 1
+
+  image:
+    repository: ""
+    tag: ""
+
+ingress:
+  name: mern-ingress
+  domain_name: "file.cloud-ninja.xyz"

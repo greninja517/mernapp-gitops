@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: {{ .Values.backend.name }}-depl
+    namespace: {{ .Release.namespace }}
+
+spec:
+    replicas: {{ .Values.backend.replicas }}
+    selector:
+        matchLabels:
+            app: backend-app
+    template:
+        metadata:
+            labels:
+                app: backend-app
+        spec:
+            containers:
+            -   name: backend
+                image: {{ .Values.backend.image.repository }}:{{ .Values.backend.image.tag }}
+                resources:
+                    limits:
+                        cpu: "150m"
+                        memory: "200Mi"
+                ports:
+                -   containerPort: 3500
+                env:
+                -   name: MONGO_CONN_STR
+                    value: {{ required  "MongoDB connection string is required. Use the --set backend.mongo_conn_str=your-connection-string" .Values.backend.mongo_conn_str }}
+                -   name: MONGO_USERNAME
+                    value: {{ required  "Username is required. Use the --set backend.mongo_username=your-username" .Values.backend.mongo_username }}
+                -   name: MONGO_PASSWORD
+                    value: {{ required  "Password is required. Use the --set backend.mongo_password=your-password" .Values.backend.mongo_password }}

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: {{ .Values.frontend.name }}-depl
+    namespace: {{ .Release.namespace }}
+spec:
+    replicas: {{ .Values.frontend.replicas }}
+    selector:
+        matchLabels:
+            app: frontend-app
+    template:
+        metadata:
+            labels:
+                app: frontend-app
+        spec:
+            containers:
+            -   name: frontend
+                image: {{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}
+                resources:
+                    limits:
+                        cpu: "150m"
+                        memory: "200Mi"
+                ports:
+                -   containerPort: 80
+                
