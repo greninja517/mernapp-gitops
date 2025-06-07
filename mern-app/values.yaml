@@ -23,4 +23,4 @@ frontend:
 
 ingress:
   name: mern-ingress
-  domain_name: "file.cloud-ninja.xyz"
+  domain_name: "app.cloud-ninja.xyz"
