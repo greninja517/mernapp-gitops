@@ -3,15 +3,13 @@ backend:
   replicas: 1
   image:
     repository: " asia-south1-docker.pkg.dev/devops-461410/mernapp-backend/backend"
-    tag: "12"
-
+    tag: "1"
 frontend:
   name: mern-frontend
   replicas: 1
   image:
     repository: "asia-south1-docker.pkg.dev/devops-461410/mernapp-frontend/frontend"
-    tag: "12"
-
+    tag: "1"
 ingress:
   name: mern-ingress
   domain_name: "app.cloud-ninja.xyz"
