@@ -1,2 +1,4 @@
 **/.helmignore
 **/*secret*
+
+!sealed_db_secret.yaml 

@@ -31,8 +31,17 @@ spec:
                 -   containerPort: 3500
                 env:
                 -   name: MONGO_CONN_STR
-                    value: {{ required  "MongoDB connection string is required. Use the --set backend.mongo_conn_str=your-connection-string" .Values.backend.mongo_conn_str }}
+                    valueFrom:
+                        secretKeyRef:
+                            name: db-secrets
+                            key: mongo-conn-str
                 -   name: MONGO_USERNAME
-                    value: {{ required  "Username is required. Use the --set backend.mongo_username=your-username" .Values.backend.mongo_username }}
+                    valueFrom:
+                        secretKeyRef:
+                            name: db-secrets
+                            key: mongo-username
                 -   name: MONGO_PASSWORD
-                    value: {{ required  "Password is required. Use the --set backend.mongo_password=your-password" .Values.backend.mongo_password }}
+                    valueFrom:
+                        secretKeyRef:
+                            name: db-secrets
+                            key: mongo-password
